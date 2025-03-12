@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Guess the Game</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="icon" href="image.png">
+</head>
+<body class="one">
+<div class="two">
+   <input type="number" id="guessnumber" placeholder="Enter a number between 1 and 10">
+   <button onclick="check()">Check</button>
+   <p id="Result">You are Right/Wrong</p>
+   <p id="Score">Score: 10</p>
+</div>
+   <script>
+   // Corrected variable declarations
+   var guessnumber = document.getElementById("guessnumber");
+   var Result = document.getElementById("Result");
+   var Score = document.getElementById("Score");
+   
+   // Generate a random number between 1 and 10
+   var randomnumber = Math.floor(Math.random() * 10) + 1;
+   
+   // Starting score
+   var totalscore = 10;
+   
+   // Function to check the player's guess
+   function check() {
+       var enterednumber = parseInt(guessnumber.value); // Convert input to integer
+       
+       // Check if the entered number matches the random number
+       if (randomnumber == enterednumber) {
+           console.log("Right");
+           Result.textContent = "Right";
+           alert("YOU WON!");
+       } else {
+           totalscore -= 1; // Decrease score by 1 on wrong guess
+           Score.textContent = "Score: " + totalscore;
+           Result.textContent = "Wrong";
+       }
+   }
+   </script>
+
+ 
+</body>
+</html>
+
